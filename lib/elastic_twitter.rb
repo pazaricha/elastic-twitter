@@ -14,4 +14,8 @@ class ElasticTwitter
   def search
     self.class.connection.search index: self.class.index_name, body: { query: @query }
   end
+
+  def to_json
+    search.to_json
+  end
 end
